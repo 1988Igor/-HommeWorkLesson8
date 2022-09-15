@@ -1,0 +1,29 @@
+//Написать программу показывающие первые N чисел,
+//для которых каждое следующее равно сумме двух предыдущих.
+//Первые два элемента последовательности задаются пользователем
+void NumbersList
+     (
+      int firstnumber,
+      int secondnumber,
+      int counter,
+      int length
+     )
+{
+    if (counter <= length)
+    {
+        Console.Write("{0} ", firstnumber);
+        NumbersList(secondnumber, firstnumber + secondnumber, counter + 1, length);
+    }
+}
+
+Console.Write("Enter the length of the List: ");
+int length = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Enter the first number: ");
+int firstnumber = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Enter the second number: ");
+int secondnumber = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine("The List of numbers is: ");
+NumbersList(firstnumber, secondnumber, 0, length);
+Console.ReadKey();
+
+
